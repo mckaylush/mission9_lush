@@ -1,4 +1,5 @@
 import React from "react";
+import teamData from "./CollegeBasketballTeams.json";
 import "./App.css";
 
 interface TeamCard {
@@ -7,13 +8,7 @@ interface TeamCard {
   location: string;
 }
 
-const teamName = [
-  {
-    name: "The Chicago Bulls",
-    mascot: "Bull",
-    location: "Chicago",
-  },
-];
+const teamName = teamData.teams;
 
 class Teams extends React.Component<TeamCard> {
   render() {
@@ -41,6 +36,7 @@ function TeamList() {
 
 function Welcome() {
   return <h1>Welcome to March Madness!!</h1>;
+  <h3>Look through the following list and see if you can find your college team!</h3>
 }
 
 function App() {
