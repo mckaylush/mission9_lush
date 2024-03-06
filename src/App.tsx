@@ -28,7 +28,14 @@ function TeamList() {
   return (
     <div>
       {teamName.map((teamNum) => (
-        <Teams {...teamNum} />
+        <div key={oneTeam.tid}>
+          <Teams
+            school = {oneTeam.school}
+            mascot={oneTeam.name}
+            location={`${oneTeam.city}, ${oneTeam.state}`}
+          />
+          {index < TeamNames.length - 1 && <br />}{" "}
+        </div>
       ))}
     </div>
   );
