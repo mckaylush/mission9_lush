@@ -1,7 +1,12 @@
+//McKay Lush
+//Sec. 2
+
+//All the needed imports like the JSON file is imported here
 import React from "react";
 import teamData from "./CollegeBasketballTeams.json";
 import "./App.css";
 
+//interface that establishes names used throughout the entire app
 interface TeamCard {
   name: string;
   mascot: string;
@@ -10,6 +15,7 @@ interface TeamCard {
 
 const teamName = teamData.teams;
 
+//Calls upon the JSON file and dynamically puts the file into the react website
 class Teams extends React.Component<TeamCard> {
   render() {
     const oneTeam = this.props;
@@ -27,25 +33,34 @@ class Teams extends React.Component<TeamCard> {
 function TeamList() {
   return (
     <div>
-      {teamName.map((teamNum) => (
-        <div key={oneTeam.tid}>
+      {teamName.map((team) => (
+        <div key={team.tid}>
           <Teams
-            school = {oneTeam.school}
-            mascot={oneTeam.name}
-            location={`${oneTeam.city}, ${oneTeam.state}`}
+            name={team.school}
+            mascot={team.name}
+            location={`${team.city}, ${team.state}`}
           />
-          {index < TeamNames.length - 1 && <br />}{" "}
         </div>
       ))}
     </div>
   );
 }
 
+//The header of the app
 function Welcome() {
-  return <h1>Welcome to March Madness!!</h1>;
-  <h3>Look through the following list and see if you can find your college team!</h3>
+  return (
+    <div>
+      <h1>Welcome to March Madness!!</h1>
+      <h3>
+        Look through the following list and see if you can find your college
+        team!
+      </h3>
+      ;
+    </div>
+  );
 }
 
+//Puts everything together to be put on the react
 function App() {
   return (
     <div className="App">
